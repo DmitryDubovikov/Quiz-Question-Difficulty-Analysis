@@ -23,11 +23,11 @@ Once Jupyter opens, navigate to [analysis.ipynb](analysis.ipynb) and optionally 
 
 ## Methodology
 
-We analyzed 10,191 Newsela quiz questions, comparing those where students performed **poorly (<40% correct)** versus **well (>60% correct)**.
+We compare the vocabulary of questions where students performed poorly (<40% correct) versus well (>60% correct).
 
-- **Features:** Analyzed single words (unigrams) and two-word phrases (bigrams).
-- **Metric:** Calculated **Log-Odds Ratio** to measure the association of each term with difficulty.
-- **Significance:** Used **Fisher's Exact Test** (for rare terms) and **Chi-Square Test** (for common terms), applying the **Benjamini-Hochberg correction** to control the False Discovery Rate (FDR < 0.05).
+1. **Feature Extraction:** We analyze single words (unigrams) and two-word phrases (bigrams), removing common stopwords.
+2. **Statistical Analysis:** We measure the association of each term with difficulty using the **Log-Odds Ratio** with **Haldane-Anscombe correction** (smoothing with 0.5).
+3. **Significance Testing:** To identify statistically significant terms, we use **Fisher's Exact Test** for rare terms (expected frequency < 5) and the **Chi-Square Test** for common terms, applying the **Benjamini-Hochberg correction** to control the False Discovery Rate (FDR < 0.05).
 
 ## Key Findings
 
